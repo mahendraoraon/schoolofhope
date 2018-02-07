@@ -3,7 +3,7 @@ include("include/db.php");
 include("include/image_resize.php");
 $EventText=$_POST[EventText];
 $EventTitle=$_POST[EventTitle];
-$EventID=$_Get[id];
+$EventID=$_POST[id];
 
 $ext = end((explode(".", $_FILES['pic']['name'])));
 $image = new SimpleImage();

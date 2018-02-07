@@ -102,6 +102,7 @@ if($_GET['id'] == "") {
 						<div class="success_wrapper">
 							<div class="success-message">Contact form submitted</div>
 						</div>
+						<input type="hidden" value="<?php echo htmlspecialchars($EventID); ?>" name="id" id="eventID" />
 						<label class="name">
 							<input type="text" value="<?php echo htmlspecialchars($EventTitle); ?>" placeholder="Event Title: " name="EventTitle" data-constraints='@Required' required />
 							<span class="empty-message">*This field is required.</span>

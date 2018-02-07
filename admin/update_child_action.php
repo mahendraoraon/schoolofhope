@@ -6,7 +6,7 @@ $childAge=$_POST[childAge];
 $childTalent=$_POST[childTalent];
 $childClass=$_POST[childClass];
 $descrip=$_POST[descrip];
-$childID=$_Get[id];
+$childID=$_POST[id];
 
 $ext = end((explode(".", $_FILES['pic']['name'])));
 $image = new SimpleImage();

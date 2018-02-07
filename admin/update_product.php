@@ -12,7 +12,7 @@ $image = new SimpleImage();
 $image->load($_FILES['pic']['tmp_name']);
 $image->resizeToWidth(200);
 $filename=md5($productName.rand(0,5000)).".".$ext;
-$image->save("../products/".$filename); 
+$image->save("/var/www/html/schoolofhope.in/products/".$filename); 
 $result=$mysqli->query("update soh_products set productName='$productName',productPrice='$productPrice',productCat='$productCat',productDes='$productDes',productImage='$filename' where productId='$ProductID'"); 
 #var_dump($result);
 if (!$result) {
