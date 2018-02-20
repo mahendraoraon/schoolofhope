@@ -1,12 +1,11 @@
 <?php
 include("admin/include/db.php");
-$query = $mysqli->query("SELECT * FROM soh_child");
-$left_align = true;
+$result = $mysqli->query("SELECT * FROM soh_news");
 ?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Childrens</title>
+		<title>SCHOOL OF HOPE</title>
 		<meta charset="utf-8">
 		<meta name = "format-detection" content = "telephone=no" />
 		<link rel="icon" href="images/favicon.ico">
@@ -56,8 +55,8 @@ $left_align = true;
 								<li><a href="mission.html">About Us</a></li>
 								<li><a href="products.php">Products</a></li>
 								<li><a href="event.php">Events</a></li>
-								<li><a href="News.php">News</a></li>
-								<li class="current"><a href="student.php">Kids</a></li>
+								<li class="current"><a href="News.php">News</a></li>
+								<li><a href="student.php">Kids</a></li>
 								<li><a href="services.html">Services &amp; Facilities</a></li>
 								<li><a href="contact.html">Contacts</a></li>
 							</ul>
@@ -68,67 +67,29 @@ $left_align = true;
 			</div>
 		</header>
 <!--==============================Content=================================-->
-		<div class="content">
-		<?php
-			$i=1;
-while ($row = $query->fetch_assoc()) {
-			//while ($row = mysql_fetch_assoc($query)) {
-				if($left_align)
-				{
-			?>
+		<div class="content"><div class="ic">M</div>
 			<div class="container_12">
-			<div class="grid_4">
-						<h2>&nbsp;</h2>
-						<img src="child/<?php echo $row['imagePath']; ?>" alt="">
-					</div>
-				<div class="grid_8">
-					
-						<h2><?php echo $row['name']; ?></h2>
-						<p>Age : <?php echo $row['age']; ?></p>
-						<p>Class :<?php echo $row['childClassData']; ?></p>
-						<p>Talents :<?php echo $row['talent']; ?> </p>
-					<a href="donation.php?childId=<?php echo $row['id']; ?>" class="bttn" >Donate and help</a></li>
-					</div>
-				</div>
-				<div class="clear"></div>
-				<br />
-			<?php
-				}
-				else
-				{
-			?>
-			<div class="container_12"><hr>
-				<div class="container_12">
-						<div class="grid_8">
-					
-						<h2><?php echo $row['name']; ?></h2>
-						<p>Age : <?php echo $row['age']; ?></p>
-						<p>Class :<?php echo $row['childClassData']; ?></p>
-						<p>Talents :<?php echo $row['talent']; ?> </p>
-						<a href="donation.php?childId=<?php echo $row['id']; ?>" class="bttn">Donate and help</a></li>
-					</div>
-					<div class="grid_4">
-						<h2>&nbsp;</h2>
-						<img src="child/<?php echo $row['imagePath']; ?>" alt="">
+				<div class="grid_12">
+				<?php
+					$i=1;
+					while ($row = $result->fetch_assoc()) {
+							$newsTitle=$row['newsTitle'];
+						$newsTime=$row['newsTime'];
+						$newsText=$row['newsText'];
+					?>
+					<div class="block2">
+						<h2><?php  echo $newsTime; echo $newsTitle ; ?></h2>
 						
-					
+						<?php echo $newsText;  ?>
 					</div>
-					<div class="clear"></div>
-					<br>
-			<?php		
-				}
-				$left_align = !$left_align;
-				$i++;
-			}
-			?>
-				<hr>
-                    
-                    
-					
+					<?php
+						}
+					?>
 				</div>
 				
 			</div>
 		</div>
+		
 		<div class="bottom_block">
 			<div class="container_12">
 				<div class="grid_4 ">
@@ -151,7 +112,7 @@ while ($row = $query->fetch_assoc()) {
 					Visit us. Share the links on Different Media Platforms.
 					<div class="socials">
 						<a href="#"><div class="fa fa-twitter"></div></a>
-						<a href="https://www.facebook.com/School.of.Hope.Jampot"><div class="fa fa-facebook"></div></a>
+						<a href="#"><div class="fa fa-facebook"></div></a>
 						<a href="#"><div class="fa fa-pinterest-square"></div></a>
 						<a href="#"><div class="fa fa-google-plus"></div></a>
 						<a href="#"><div class="fa fa-instagram"></div></a>
@@ -160,14 +121,4 @@ while ($row = $query->fetch_assoc()) {
 			</div>
 		</div>
 <!--==============================footer=================================-->
-		<footer>
-			<div class="container_12">
-				<div class="grid_12">
-					<div class="copy">
-						School Of Hope &copy; 2014 | <a href="termsandconditions.html">Privacy Policy</a> <br> Website designed by <a href="http://www.facebook.com/mobsketch" rel="nofollow">Mobsketch </a>
-					</div>
-				</div>
-			</div>
-		</footer>
-	</body>
-</html>
+<footer> <div class="container_12"> <div class="grid_12"> <div class="copy"> School Of Hope &copy; 2014 | <a href="termsandconditions.html">Privacy Policy</a> <br> Website designed by <a href="http://www.facebook.com/mobsketch" rel="nofollow">Mobsketch </a> </div> </div> </div> </footer> </body> </html>

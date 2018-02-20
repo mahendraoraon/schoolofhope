@@ -1,3 +1,7 @@
+<?php
+include("admin/include/db.php");
+$query = $mysqli->query("SELECT * FROM (SELECT * FROM soh_news ORDER BY id DESC LIMIT 2) as r ORDER BY id");
+?>
 <!DOCTYPE html> 
 <html lang="en">
 	<head>
@@ -43,19 +47,21 @@
 			<div class="container_12">
 				<div class="grid_12">
 					<h1>
-						<a href="index.html">
-							<img src="images/logo.png" alt="Your Happy Family">
+						<a href="index.php">
+							<img src="images/logo.png" alt="School of hope">
 						</a>
 					</h1>
 					<div class="menu_block ">
 						<a href="contribute.html" class="donate">CONTRIBUTE</a>						<div class="clear"></div>
 						<nav class="horizontal-nav full-width horizontalNav-notprocessed">
 								<ul class="sf-menu">
-								<li  class="current"><a href="index.html">Home</a></li>
+								<li class="current"><a href="index.php">Home</a></li>
 								<li><a href="mission.html">About Us</a></li>
-								<li><a href="products.php">Our Products</a></li>
-								<li><a href="event.html">Events</a></li>
-											<li><a href="services.html">Services &amp; Facilities</a></li>
+								<li><a href="products.php">Products</a></li>
+								<li><a href="event.php">Events</a></li>
+								<li><a href="News.php">News</a></li>
+								<li><a href="student.php">Kids</a></li>
+								<li><a href="services.html">Services &amp; Facilities</a></li>
 								<li><a href="contact.html">Contacts</a></li>
 							</ul>
 						</nav>
@@ -121,11 +127,25 @@ To motivate, train, educate, empower & have the Special Children included in the
                     
 					<blockquote class="bq1">
 						<div class="title">Latest News</div>
-						<p><marquee behavior="scroll" direction="up" scrollamount="1">
+						<b><marquee behavior="scroll" direction="up" scrollamount="1">
 
-<a href="#">scrolling text</a><br><a href="#">scrolling text</a><br><a href="#">scrolling text</a>
+					
+<?php
+					$i=1;
+					while ($row = $query->fetch_assoc()) {
+					
+					?>						
+						<a class="item" href="news.php"><p><?php echo $row['newsTitle'];?></p></a>
+										
+					<?php				
+					
+					}
+					
+					?>
 
-</marquee> </p>
+
+
+</marquee> </b>
 						
 					</blockquote>
 				</div>
