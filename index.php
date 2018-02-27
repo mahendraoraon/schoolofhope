@@ -62,7 +62,7 @@ $query = $mysqli->query("SELECT * FROM (SELECT * FROM soh_news ORDER BY id DESC 
 								<li><a href="News.php">News</a></li>
 								<li><a href="student.php">Kids</a></li>
 								<li><a href="services.html">Services &amp; Facilities</a></li>
-								<li><a href="contact.html">Contacts</a></li>
+								<li><a href="contact.php">Contacts</a></li>
 							</ul>
 						</nav>
 						<div class="clear"></div>
@@ -135,7 +135,7 @@ To motivate, train, educate, empower & have the Special Children included in the
 					while ($row = $query->fetch_assoc()) {
 					
 					?>						
-						<a class="item" href="news.php"><p><?php echo $row['newsTitle'];?></p></a>
+						<a class="item" href="News.php"><p><?php echo $row['newsTitle'];?></p></a>
 										
 					<?php				
 					

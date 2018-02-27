@@ -63,6 +63,7 @@ if(!isset($_SESSION['soh_admin']))
 								<li class="current"><a href="events_list.php">Events</a></li>
 								<li><a href="newslist.php">News</a></li>
 								<li><a href="donationview.php">Donations</a></li>
+								<li><a href="orderview.php">Orders</a></li>
 								<li><a href="child_list.php">Child</a></li>
                                 				<li><a href="logout.php">Log Out</a></li>
 							</ul>

@@ -13,7 +13,7 @@ if(!isset($_SESSION['soh_admin']))
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Child List</title>
+		<title>School of hope</title>
 		<meta charset="utf-8">
 		<meta name = "format-detection" content = "telephone=no" />
 		<link rel="icon" href="images/favicon.ico">
@@ -68,6 +68,7 @@ if(!isset($_SESSION['soh_admin']))
 								<li><a href="events_list.php">Events</a></li>
 								<li><a href="newslist.php">News</a></li>
 								<li><a href="donationview.php">Donations</a></li>
+								<li><a href="orderview.php">Orders</a></li>
 								<li class="current"><a href="child_list.php">Child</a></li>
                                 				<li><a href="logout.php">Log Out</a></li>
 							</ul>

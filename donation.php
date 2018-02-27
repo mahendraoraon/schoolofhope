@@ -1,6 +1,8 @@
 <?php
+session_start();
 include("admin/include/db.php");
 $childId = $_GET['childId'];
+$_SESSION['childId'] = $childId;
 $result = $mysqli->query("SELECT * FROM soh_child WHERE id=$childId");
 $row = $result->fetch_assoc();
 #$row   = mysqli_fetch_row($result);
@@ -70,7 +72,7 @@ $row = $result->fetch_assoc();
 								<li><a href="News.php">News</a></li>
 								<li><a href="student.php">Kids</a></li>
 								<li><a href="services.html">Services &amp; Facilities</a></li>
-								<li><a href="contact.html">Contacts</a></li>
+								<li><a href="contact.php">Contacts</a></li>
 							</ul>
 						</nav>
 						<div class="clear"></div>

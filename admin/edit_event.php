@@ -17,7 +17,7 @@ if($_GET['id'] == "") {
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"><title>School of hope</title>
 	<head>
 		<title>Update Event</title>
 		<meta charset="utf-8">
@@ -74,6 +74,7 @@ if($_GET['id'] == "") {
 								<li class="current"><a href="events_list.php">Events</a></li>
 								<li><a href="newslist.php">News</a></li>
 								<li><a href="donationview.php">Donations</a></li>
+								<li><a href="orderview.php">Orders</a></li>
 								<li><a href="child_list.php">Child</a></li>
                                 				<li><a href="logout.php">Log Out</a></li>
 							</ul>
@@ -97,7 +98,7 @@ if($_GET['id'] == "") {
 					</div>
 			
 				<div class="grid_12">
-					<h2>Find Us</h2>
+					<h2>Update Event</h2>
 					<form id="form" action="update_event_action.php" method="post" enctype="multipart/form-data">
 						<div class="success_wrapper">
 							<div class="success-message">Contact form submitted</div>

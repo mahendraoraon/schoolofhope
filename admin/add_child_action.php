@@ -10,7 +10,7 @@ $childDes=$_POST['descrip'];
 $ext = end((explode(".", $_FILES['pic']['name'])));
 $image = new SimpleImage();
  $image->load($_FILES['pic']['tmp_name']);
- $image->resizeToWidth(200);
+ //$image->resizeToWidth(200);
  $filename=md5($productName.rand(0,5000)).".".$ext;
  $image->save("../child/".$filename);
  $mysqli->query("INSERT INTO soh_child (name,age,talent,childClassData,imagePath,description) VALUES ('$childName','$childAge','$childTalent','$childClass','$filename','$childDes')");

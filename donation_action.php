@@ -1,14 +1,20 @@
 <?php
+session_start();
 include("admin/include/db.php");
 $childId= $_POST['childId'];
 $name = $_POST['name'];
 $mobile = $_POST['mobile'];
-$email =$_POST['Email'];
+$email =$_POST['email'];
 $donateId = $_POST['donateId'];
 $address = $_POST['address'];
 $tnc =$_POST['TnC'];
 
-$mysqli->query("INSERT INTO soh_donation (childId,name,mobile,email,address,donateId,tnc) VALUES ('$childId','$name','$mobile','$email','$address','$donateId','$tnc')");
+if($mysqli->query("INSERT INTO soh_donation (childId,name,mobile,email,address,donateId,tnc) VALUES ('$childId','$name','$mobile','$email','$address','$donateId','$tnc')"))
+{
 
-header("Location: thankyou.php");
+	unset($_SESSION[childId]);
+	header("Location: thankyoudonation.php?id=$donateId");
+
+}	
 ?>
+

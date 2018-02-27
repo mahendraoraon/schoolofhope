@@ -20,7 +20,7 @@ if($_GET['id'] == "") {
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Add News</title>
+		<title>School of hope</title>
 		<meta charset="utf-8">
 		<meta name = "format-detection" content = "telephone=no" />
 		<link rel="icon" href="images/favicon.ico">
@@ -75,6 +75,7 @@ if($_GET['id'] == "") {
 								<li><a href="events_list.php">Events</a></li>
 								<li class="current"><a href="newslist.php">News</a></li>
 								<li><a href="donationview.php">Donations</a></li>
+								<li><a href="orderview.php">Orders</a></li>
 								<li><a href="child_list.php">Child</a></li>
                                 				<li><a href="logout.php">Log Out</a></li>
 							</ul>
@@ -98,7 +99,7 @@ if($_GET['id'] == "") {
 						<div class="clear"></div>
 					</div>
 				<div class="grid_12">
-					<h2>Add New News</h2>
+					<h2>Update New</h2>
 					<form id="form" action="Update_news_action.php" method="post" enctype="multipart/form-data">
 						<div class="success_wrapper">
 							<div class="success-message">Contact form submitted</div>

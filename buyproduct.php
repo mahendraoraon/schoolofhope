@@ -1,6 +1,8 @@
 <?php
 include("admin/include/db.php");
+session_start();
 $productId=$_GET['pid'];
+$_SESSION['productId'] = $productId;
 $query = $mysqli->query("SELECT * FROM soh_products WHERE productId = $productId");
 $row = $query->fetch_assoc();
 
@@ -10,7 +12,7 @@ $row = $query->fetch_assoc();
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Products</title>
+		<title>School of hope</title>
 		<meta charset="utf-8">
 		<meta name = "format-detection" content = "telephone=no" />
 		<link rel="icon" href="images/favicon.ico">
@@ -63,7 +65,7 @@ $row = $query->fetch_assoc();
 								<li><a href="News.php">News</a></li>
 								<li><a href="student.php">Kids</a></li>
 								<li><a href="services.html">Services &amp; Facilities</a></li>
-								<li><a href="contact.html">Contacts</a></li>
+								<li><a href="contact.php">Contacts</a></li>
 							</ul>
 						</nav>
 						<div class="clear"></div>
@@ -87,16 +89,50 @@ $row = $query->fetch_assoc();
 					<h2>Product details</h2>					
 						
 						<p></p>
+
 						<p>Product Name - <?php echo $row['productName']; ?></p>
 						<p>Price - <?php echo $row['productPrice']; ?></p>
+						
 						<p>Description - <?php echo $row['productDes']; ?></p>
-						<form action="order.php" method="post">
+						<form action="ccavRequestHandlerOrder.php" method="post">
+						<!--<input type="input" name="amount" value="<?php echo $row['productPrice']; ?>"><br><br />-->
+						
 						<input type="hidden" name="pid" value="<?php echo $row['productId']; ?>" >
-						<input type="input" placeholder="Enter Number of Products" name="quantity" value="" ><br><br />
-						<input type="input" placeholder="Name" name="name" value="" ><br /> <br />
-						<input type="input" placeholder="Mobile No." name="mobile" value="" ><br><br />
-						<textarea name="address">
-						</textarea>
+						<input type="input" id="qnty" placeholder="Enter Number of Products" name="quantity" value="" onchange="totalAmount(this.value)" ><br><br />
+
+						<input type="hidden" id="totalamt" placeholder="total Amount" name="amount"  value="" >
+						<p id="pamt">Total Amount - 0</p>
+						
+						<script>
+						function totalAmount(val) {
+						   
+						   
+						   var total=parseInt(document.getElementById("qnty").value) * <?php echo $row['productPrice']; ?>;
+						   document.getElementById('totalamt').value=total ;
+						    $('#pamt').text('Total Amount - '+ total);
+						}
+						</script>
+						<input type="input" placeholder="Name" name="billing_name" value="" ><br /> <br />
+						<input type="input" placeholder="Mobile No." name="billing_tel" value="" ><br><br />
+						<input type="input" placeholder="Email ID" name="billing_email" value="" ><br><br />
+						<br />
+						Address :<br>
+						<textarea name="billing_address">
+						</textarea><br><br />
+						<input type="input" placeholder="City" name="billing_city" value="" ><br><br />
+						<input type="input" placeholder="State" name="billing_state" value="" ><br><br />
+						<input type="input" placeholder="PIN/ZIP Code" name="billing_zip" value="" ><br><br />
+						<input type="input" placeholder="Country" name="billing_country" value="" ><br><br />
+										
+						<input type="hidden" name="merchant_id" value="78901"/>
+						
+						<input type="hidden" name="order_id" value="<?php echo uniqid(); ?>"/>
+						<input type="hidden" name="currency" value="INR"/>
+						<input type="hidden" name="redirect_url" value="http://www.schoolofhope.in/ccavResponseHandlerOrder.php"/>
+						<input type="hidden" name="cancel_url" value="http://www.schoolofhope.in/ccavResponseHandlerOrder.php"/>
+						<input type="hidden" name="language" value="EN"/>
+						<!--<input type="hidden" name="amount" value="<?php echo $row['productPrice']; ?>"/>-->
+
 						<br />
 						<input type="checkbox" name="TnC" value="1"> I Agree with <a href="termsandconditions.html">Terms & conditions </a><br>
 						<input type="submit" class="bttn" value="Buy">

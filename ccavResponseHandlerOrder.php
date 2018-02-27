@@ -46,8 +46,9 @@
 		for($i = 0; $i < $dataSize; $i++) 
 		{
 			$information=explode('=',$decryptValues[$i]);
-		    	//echo '<tr><td>'.$information[0].'</td><td>'.$information[1].'</td></tr>';
-				if($information[0]== "billing_name"){
+		    	echo '<tr><td>'.$information[0].'</td><td>'.$information[1].'</td></tr>';
+
+		    	if($information[0]== "billing_name"){
 				
 					$name=$information[1];
 				}
@@ -61,36 +62,53 @@
 				}
 				if($information[0]== "tracking_id"){
 				
-					$donateId=$information[1];
+					$PaymentTracking_id=$information[1];
 				}
 				if($information[0]== "billing_address"){
 				
 					$address=$information[1];
 				}
+				if($information[0]== "billing_city"){
+				
+					$city=$information[1];
+				}
+				if($information[0]== "billing_state"){
+				
+					$state=$information[1];
+				}
+				if($information[0]== "billing_country"){
+				
+					$country=$information[1];
+				}
+				if($information[0]== "billing_zip"){
+				
+					$zip=$information[1];
+				}
 				if($information[0]== "mer_amount"){
 				
-					$TnC=$information[1];
+					$amount=$information[1];
 				}
+				
 		}
 
-	echo "</table><br>";
-	echo "</center>";
+		echo "<form method=post name=redirect action=order.php> ";
 
-
-
-
-	echo "<form method=post name=redirect action=donation_action.php> ";
-
-		echo "<input type=hidden name=childId value=$_SESSION[childId]>";
 		echo "<input type=hidden name=name value=$name>";
 		echo "<input type=hidden name=mobile value=$mobile>";
 		echo "<input type=hidden name=email value=$email>";
-		echo "<input type=hidden name=donateId value=$donateId>";
 		echo "<input type=hidden name=address value=$address>";
-		echo "<input type=hidden name=TnC value=$TnC>";
+		echo "<input type=hidden name=city value=$city>";
+		echo "<input type=hidden name=state value=$state>";
+		echo "<input type=hidden name=country value=$country>";
+		echo "<input type=hidden name=address value=$address>";
+		echo "<input type=hidden name=amount value=$amount>";
+		echo "<input type=hidden name=PaymentTracking_id value=$PaymentTracking_id>";
+		echo "<input type=hidden name=zip value=$zip>";
+		
 
-	echo "</form>";
-	echo "<script language=javascript>document.redirect.submit();</script>";
+		echo "</form>";
+		echo "<script language=javascript>document.redirect.submit();</script>";
 
+		
 	}
 ?>

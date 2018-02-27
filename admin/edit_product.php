@@ -25,7 +25,7 @@ if($_GET['id'] == "") {
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"><title>School of hope</title>
 	<head>
 		<title>Edit Product</title>
 		<meta charset="utf-8">
@@ -88,6 +88,7 @@ if($_GET['id'] == "") {
 								<li><a href="events_list.php">Events</a></li>
 								<li><a href="newslist.php">News</a></li>
 								<li><a href="donationview.php">Donations</a></li>
+								<li><a href="orderview.php">Orders</a></li>
 								<li><a href="child_list.php">Child</a></li>
                                 				<li><a href="logout.php">Log Out</a></li>
 							</ul>
@@ -112,7 +113,7 @@ if($_GET['id'] == "") {
 					</div>
 				
 				<div class="grid_12">
-					<h2>Add Products</h2>
+					<h2>Update Product</h2>
 					<form id="form" action="update_product.php" method="post" enctype="multipart/form-data">
 						<div class="success_wrapper">
 							<div class="success-message">Products submitted</div>
@@ -141,7 +142,7 @@ if($_GET['id'] == "") {
 						
 						<label class="file">
 						<a href="../products/<?php echo htmlspecialchars($ProductImage); ?>" class="gal"><img src="../products/<?php echo htmlspecialchars($ProductImage); ?>" alt=""></a>
-						<input type="file" name="pic" id="Pimage" value="<?php echo htmlspecialchars($ProductImage); ?>" accept="image/*" required>
+						<input type="file" name="pic" id="Pimage" value="<?php echo htmlspecialchars($ProductImage); ?>" accept="image/*" >
 						</label>
 						<label class="message">
 							<textarea placeholder="Description:" id="Pdescription" value="<?php echo htmlspecialchars($ProductDescription); ?>" name="descrip" required></textarea>

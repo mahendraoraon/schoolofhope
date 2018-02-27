@@ -8,8 +8,10 @@
 <?php include('Crypto.php')?>
 <?php 
 	session_start();
+	$_SESSION['orderQuantity'] = $_POST['quantity'];
 
-    
+   // var_dump($_SESSION['orderQuantity'],$_SESSION['productId'] );
+    //exit;
 	error_reporting(1);
 	
 	$merchant_data='78901';

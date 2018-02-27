@@ -7,13 +7,21 @@ $productCat=$_POST[category];
 $productDes=$_POST[descrip];
 $ProductID=$_POST[Pid];
 
-$ext = end((explode(".", $_FILES['pic']['name'])));
-$image = new SimpleImage();
-$image->load($_FILES['pic']['tmp_name']);
-$image->resizeToWidth(200);
-$filename=md5($productName.rand(0,5000)).".".$ext;
-$image->save("/var/www/html/schoolofhope.in/products/".$filename); 
-$result=$mysqli->query("update soh_products set productName='$productName',productPrice='$productPrice',productCat='$productCat',productDes='$productDes',productImage='$filename' where productId='$ProductID'"); 
+
+if($_FILES['pic']['name']==""){
+
+	$result=$mysqli->query("update soh_products set productName='$productName',productPrice='$productPrice',productCat='$productCat',productDes='$productDes' where productId='$ProductID'"); 
+
+}else{
+
+	$ext = end((explode(".", $_FILES['pic']['name'])));
+	$image = new SimpleImage();
+	$image->load($_FILES['pic']['tmp_name']);
+	//$image->resizeToWidth(200);
+	$filename=md5($productName.rand(0,5000)).".".$ext;
+	$image->save("/var/www/html/schoolofhope.in/products/".$filename); 
+	$result=$mysqli->query("update soh_products set productName='$productName',productPrice='$productPrice',productCat='$productCat',productDes='$productDes',productImage='$filename' where productId='$ProductID'"); 
+}
 #var_dump($result);
 if (!$result) {
 echo $mysqli->error;

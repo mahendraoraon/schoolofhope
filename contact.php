@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Contacts</title>
+		<title>School of hope</title>
 		<meta charset="utf-8">
 		<meta name = "format-detection" content = "telephone=no" />
 		<link rel="icon" href="images/favicon.ico">
@@ -55,7 +55,7 @@
 								<li><a href="News.php">News</a></li>
 								<li><a href="student.php">Kids</a></li>
 								<li><a href="services.html">Services &amp; Facilities</a></li>
-								<li class="current"><a href="contact.html">Contacts</a></li>
+								<li class="current"><a href="contact.php">Contacts</a></li>
 							</ul>
 						</nav>
 						<div class="clear"></div>
@@ -100,42 +100,40 @@
 						<div class="clear"></div>
 					</div>
 					<h2>Contact Form</h2>
-					<form id="form">
-						<div class="success_wrapper">
-							<div class="success-message">Contact form submitted</div>
-						</div>
-						<label class="name">
-							<input type="text" placeholder="Name:" data-constraints="@Required @JustLetters" />
-							<span class="empty-message">*This field is required.</span>
-							<span class="error-message">*This is not a valid name.</span>
-						</label>
-						<label class="email">
-							<input type="text" placeholder="Email:" data-constraints="@Required @Email" />
-							<span class="empty-message">*This field is required.</span>
-							<span class="error-message">*This is not a valid email.</span>
-						</label>
-						<label class="subject">
-							<input type="text" placeholder="Subject:" data-constraints="@Required @JustLetters"/>
-							<span class="empty-message">*This field is required.</span>
-							<span class="error-message">*This is not a valid phone.</span>
-						</label>
-						<label class="message">
-							<textarea placeholder="Message:" data-constraints='@Required @Length(min=20,max=999999)'></textarea>
-							<span class="empty-message">*This field is required.</span>
-							<span class="error-message">*The message is too short.</span>
-						</label>
-						<div>
-							<div class="clear"></div>
-							<div class="btns">
-								<a href="#" data-type="reset" class="btn">Clear</a>
-								<a href="test.php" data-type="submit" class="btn">Send</a>
-							</div>
-						</div>
-					</form>
+					<form id="form" method="POST" action="contact1.php">
+											</form>
+
+<form id="form" method="POST" action="contact1.php">
+		<div class="container"><div class="row">
+
+													<input type="text" name="username" placeholder="Name:" data-constraints="@Required @JustLetters" />
+													<input type="text" name="email" placeholder="Email:" data-constraints="@Required @Email" />
+													<input type="text" name="subject" placeholder="Subject:" data-constraints="@Required @JustLetters"/>
+</div>
+													<br /><br /><br /><textarea name="message" placeholder="Message:" data-constraints='@Required @Length(min=20,max=999999)'></textarea>
+						 <button class="pull-right btn-success" style="background-color:lightblue; margin-top:10px;" type="submit">SEND</button>  
+</div>				
+	</form>
+
 				</div>
 			</div>
 		</div>
-		<div class="bottom_block">
+
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  
+echo "<h2>Your Input:</h2>";
+echo $_POST["username"];
+echo "<br>";
+echo  $_POST["email"];
+echo "<br>";
+echo  $_POST["message"];
+echo "<br>";
+echo  $_POST["subject"];
+echo "<br>";
+}
+?>		<div class="bottom_block">
 			<div class="container_12">
 				<div class="grid_4 ">
 					<h3>Stay Informed</h3>

@@ -58,7 +58,7 @@ $result = $mysqli->query("SELECT * FROM soh_news");
 								<li class="current"><a href="News.php">News</a></li>
 								<li><a href="student.php">Kids</a></li>
 								<li><a href="services.html">Services &amp; Facilities</a></li>
-								<li><a href="contact.html">Contacts</a></li>
+								<li><a href="contact.php">Contacts</a></li>
 							</ul>
 						</nav>
 						<div class="clear"></div>

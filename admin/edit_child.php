@@ -20,7 +20,7 @@ if($_GET['id'] == "") {
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"><title>School of hope</title>
 	<head>
 		<title>Update Child</title>
 		<meta charset="utf-8">
@@ -77,6 +77,7 @@ if($_GET['id'] == "") {
 								<li><a href="events_list.php">Events</a></li>
 								<li><a href="newslist.php">News</a></li>
 								<li><a href="donationview.php">Donations</a></li>
+								<li><a href="orderview.php">Orders</a></li>
 								<li class="current"><a href="child_list.php">Child</a></li>
                                 				<li><a href="logout.php">Log Out</a></li>
 							</ul>
@@ -100,13 +101,13 @@ if($_GET['id'] == "") {
 					</div>
 			
 				<div class="grid_12">
-					<h2>Find Us</h2>
+					<h2>Update child</h2>
 					<form id="form" action="update_child_action.php" method="post" enctype="multipart/form-data">
 						<div class="success_wrapper">
 							<div class="success-message">Contact form submitted</div>
 						</div>
 						<input type="hidden" value="<?php echo htmlspecialchars($ChildID); ?>" name="id" id="childID" />
-						<label class="name">
+						<label class="name" >
 							<input type="text" value="<?php echo htmlspecialchars($ChildName); ?>" placeholder="Name:" name="childName" data-constraints='@Required' required />
 							<span class="empty-message">*This field is required.</span>
 							<span class="error-message">*This is not a valid name.</span>
@@ -128,9 +129,9 @@ if($_GET['id'] == "") {
 						</label>
 						
 						<label class="file">
-<a href="../child/<?php echo htmlspecialchars($ChildImage); ?>" class="gal"><img src="../child/<?php echo htmlspecialchars($ChildImage); ?>" alt=""></a>
+							<a href="../child/<?php echo htmlspecialchars($ChildImage); ?>" class="gal"><img src="../child/<?php echo htmlspecialchars($ChildImage); ?>" alt=""></a>
 
-						<input type="file" value="<?php echo htmlspecialchars($ChildImage); ?>" name="pic" accept="image/*">
+							<input type="file" value="../child/<?php echo $ChildImage; ?>" name="pic" accept="image/*">
 						</label>
 						<label class="message">
 							<textarea placeholder="Description:" name="descrip" data-constraints='@Required @Length(min=20,max=999999)' required ><?php echo htmlspecialchars($ChildDescription); ?></textarea>

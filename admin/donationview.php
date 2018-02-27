@@ -11,6 +11,7 @@ $query = $mysqli->query("SELECT * FROM soh_donation");
 
 <!DOCTYPE html>
 <html lang="en">
+	<title>School of hope</title>
 	<head>
 		<meta charset="utf-8">
 		<meta name = "format-detection" content = "telephone=no" />
@@ -31,6 +32,7 @@ $query = $mysqli->query("SELECT * FROM soh_donation");
 			$().UItoTop({ easingType: 'easeOutQuart' });
 			});
 		</script>
+		
 		<!--[if lt IE 8]>
 		<div style=' clear: both; text-align:center; position: relative;'>
 			<a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
@@ -62,6 +64,7 @@ $query = $mysqli->query("SELECT * FROM soh_donation");
 								<li><a href="events_list.php">Events</a></li>
 								<li><a href="newslist.php">News</a></li>
 								<li class="current"><a href="donationview.php">Donations</a></li>
+								<li><a href="orderview.php">Orders</a></li>
 								<li><a href="child_list.php">Child</a></li>
                                 				<li><a href="logout.php">Log Out</a></li>
 							</ul>
@@ -81,22 +84,29 @@ $query = $mysqli->query("SELECT * FROM soh_donation");
 				<div class="grid_12 prefix_1 suffix_1 ver maxheight">
 				<br>
 				<table>
-				<tr><th>Sl.no.</th><th>Child</th><th>Donator</th><th>Email</th><th>phone no.</th><th>Donation</th></tr>
+				<!--<tr><th>Sl.no.</th><th>Child</th><th>Donator</th><th>Email</th><th>phone no.</th><th>Donation</th></tr>-->
+				<tr style="font-weight:bold;"><td>Sl.no.</td><td>Child</td><td>Donator</td><td>Email</td><td>phone no.</td><td>Donation</td></tr>
 				<?php
 				$i=1;
-					while ($row = mysql_fetch_assoc($query)) {
+					//while ($row = mysql_fetch_assoc($query)) {
+					while ($row = $query->fetch_assoc()) {
 						$childId=$row['childId'];
-					$result=$mysqli->query("SELECT * FROM soh_child WHERE childId='$childId'");
-					$donateId=$row['donateId'];
+						$resultChild=$mysqli->query("SELECT * FROM soh_child WHERE id=$childId");
+						//$query = $mysqli->query("SELECT * FROM soh_donation");
+						$rowChild = $resultChild->fetch_assoc();//mysql_fetch_assoc($query);   
+  				
+						//$donateId=$row['donateId'];
 				?>
 				<tr></tr>
 				<tr>
 				<td><?php echo $i++;?></td>
-				<td><?php echo mysql_result($result,0,'name'); ?></td>
+				<!--<td><?php echo mysql_result($result,0,'name'); ?></td>-->
+				<td><?php echo $rowChild['name']; ?></td>
 				<td><?php echo $row['name']; ?></td>
 				<td><?php echo $row['email']; ?></td>
 				<td><?php echo $row['mobile']; ?></td>
-				<td><?php echo $donationArray[$donateId]; ?></td>
+				<!--<td><?php echo $donationArray[$donateId]; ?></td>-->
+				<td><?php echo $row['tnc']; ?></td>
 				</tr>
 				<?php
 					}

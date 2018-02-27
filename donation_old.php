@@ -60,7 +60,7 @@ $query = mysql_query("SELECT * FROM soh_products WHERE productId = '$productId'"
 								<li><a href="products.php">Our Products</a></li>
 								<li><a href="event.html">Events</a></li>
 								<li><a href="services.html">Services &amp; Facilities</a></li>
-								<li><a href="contact.html">Contacts</a></li>
+								<li><a href="contact.php">Contacts</a></li>
 							</ul>
 							</ul>
 						</nav>
